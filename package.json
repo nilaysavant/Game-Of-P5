@@ -1,0 +1,22 @@
+{
+  "name": "p5-test",
+  "version": "1.0.0",
+  "description": "A simple test game with p5.js",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nilaysavant/P5-Test.git"
+  },
+  "author": "Nilay Savant",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nilaysavant/P5-Test/issues"
+  },
+  "homepage": "https://github.com/nilaysavant/P5-Test#readme",
+  "devDependencies": {
+    "surge": "^0.20.5"
+  }
+}
