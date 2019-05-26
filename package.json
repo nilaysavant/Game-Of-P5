@@ -1,5 +1,5 @@
 {
-  "name": "p5-test",
+  "name": "gameofp5",
   "version": "1.0.0",
   "description": "A simple test game with p5.js",
   "main": "script.js",
