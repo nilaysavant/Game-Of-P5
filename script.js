@@ -15,7 +15,7 @@ let ball;
 function setup() {
     // put setup code here
     initCanvas()
-    ball =  new Ball(40, 15)
+    ball = new Ball(40, 15)
 }
 
 
@@ -26,6 +26,7 @@ function draw() {
     // ball.display()
     ball.gravity()
     keyboardInput()
+    touchInput()
     ball.show()
     // ball.log()
 
@@ -35,7 +36,7 @@ function draw() {
     A function reset canvas to init state
 */
 function initCanvas() {
-    createCanvas(1350, 610)
+    createCanvas(360, 640)
     background(0)
     stroke(255) // Set line drawing color to white
     frameRate(60) // 60 fps
@@ -51,6 +52,27 @@ function keyboardInput() {
         ball.ballLeft()
     } else if (keyIsDown(68)) { // D press: RIGHT
         ball.ballRight()
+    }
+    return false; // prevent default
+}
+
+function touchInput() {
+    if (touches.length > 0) {
+        let touchX = touches[0].x
+        let touchY = touches[0].y
+        let ballX = ball.pos.x
+        let ballY = ball.pos.y
+
+        // console.table(ball.pos.x)
+        if (touchY < ballY) { // W prees: UP
+            ball.ballUp()
+        } else if (keyIsDown(83)) { // S press: DOWN
+            ball.ballDown()
+        } else if (touchX < ballX) { // A press: LEFT
+            ball.ballLeft()
+        } else if (touchX > ballX) { // D press: RIGHT
+            ball.ballRight()
+        }
     }
     return false; // prevent default
 }
