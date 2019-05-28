@@ -15,7 +15,7 @@ let ball;
 function setup() {
     // put setup code here
     initCanvas()
-    ball = new Ball(40, 15)
+    ball = new Ball(50, 15)
 }
 
 
@@ -29,6 +29,11 @@ function draw() {
     touchInput()
     ball.show()
     // ball.log()
+
+    textSize(15);
+    fill(255);
+    text('width: ' + windowWidth, 10, 30);
+    text('height: ' + windowHeight, 100, 30);
 
 }
 
@@ -75,11 +80,11 @@ function touchInput() {
         let ballX = ball.pos.x
         let ballY = ball.pos.y
 
-        if (touchY < ballY) { 
+        if (touchY < ballY) {
             ball.ballUp()
-        } else if (keyIsDown(83)) { 
+        } else if (keyIsDown(83)) {
             ball.ballDown()
-        } else if (touchX < ballX) { 
+        } else if (touchX < ballX) {
             ball.ballLeft()
         } else if (touchX > ballX) {
             ball.ballRight()
