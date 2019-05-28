@@ -35,6 +35,10 @@ class Ball {
         fill(0)
         circle(this.pos.x, this.pos.y, this.dia)
 
+        // draw ground line for ball
+        stroke(100)
+        line(0, this.minpos.y + this.dia / 2, width, this.minpos.y + this.dia / 2)
+
         this.history.push({
             x: this.pos.x,
             y: this.pos.y
