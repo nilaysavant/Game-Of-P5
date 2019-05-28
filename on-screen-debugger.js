@@ -6,10 +6,10 @@ class OnScreenDebugger {
         this.debugArray = []
         this.active = false
     }
-    add(param, value) {
+    add(param, value) { // to add a param for debugging 
         this.debugArray.push([param, value])
     }
-    set(param, value) {
+    set(param, value) { // to set a param for debuggging (adds the new param if its doesnt pre exits)
         let index = this.debugArray.findIndex((element) => {
             return element[0] === param
         })
@@ -20,7 +20,7 @@ class OnScreenDebugger {
             this.add(param, value)
         }
     }
-    show() {
+    show() { // function to display the debugger
         if (this.active) {
             strokeWeight(0)
             textSize(this.text_size)
@@ -33,10 +33,10 @@ class OnScreenDebugger {
             }
         }
     }
-    activate() {
+    activate() { // activate debugger
         this.active = true
     }
-    deactivate() {
+    deactivate() { // deactivate debugger
         this.active = false
     }
 }
