@@ -85,9 +85,10 @@ function touchInput() {
         // let ballX = ball.pos.x
         // let ballY = ball.pos.y
 
-
-        // if ()
-
+        if (joystick.active) {
+            let gimbleVect = p5.Vector.sub(touchVect, joystick.pos)
+            drawArrow(joystick.pos, gimbleVect, 'red')
+        }
 
         // if (touchY < ballY) {
         //     ball.ballUp()
@@ -100,4 +101,17 @@ function touchInput() {
         // }
     }
     return false; // prevent default
+}
+
+function touchStarted() {
+    touchVect.set(touches[0].x, touches[0].y)
+
+    if (p5.Vector.dist(touchVect, joystick.pos) < joystick.dia) {
+        joystick.activate()
+    }
+}
+
+function touchEnded() {
+    joystick.deactivate()
+
 }
