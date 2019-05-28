@@ -43,7 +43,6 @@ function draw() {
     joystick.show()
     // ball.log()
     OSD.show()
-    // onScreenDebug()
 }
 
 /*
@@ -54,21 +53,6 @@ function initCanvas() {
     background(0)
     stroke(255) // Set line drawing color to white
     frameRate(60) // 60 fps
-}
-
-
-/*
- * function to display on screen debug params
- */
-function onScreenDebug() {
-    strokeWeight(0)
-    textSize(windowHeight / 60)
-    fill(255)
-    text('width: ' + windowWidth, windowHeight / 70, windowHeight / 35)
-    text('height: ' + windowHeight, windowHeight / 9, windowHeight / 35)
-    text('touch x: ' + int(touchVect.x), windowHeight / 3, windowHeight / 35)
-    text('y: ' + int(touchVect.y), windowHeight / 2.2, windowHeight / 35)
-
 }
 
 
@@ -94,6 +78,7 @@ function touchInput() {
     if (touches.length > 0) { // if there are any touches
         touchVect.set(touches[0].x, touches[0].y)
 
+        // set touch params for OSD(debug)
         OSD.set('x', int(touchVect.x))
         OSD.set('y', int(touchVect.y))
 
