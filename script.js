@@ -51,6 +51,7 @@ function initCanvas() {
     function to display on screen debug params
 */
 function onScreenDebug() {
+    strokeWeight(0)
     textSize(windowHeight / 60)
     fill(255)
     text('width: ' + windowWidth, windowHeight / 70, windowHeight / 35)
