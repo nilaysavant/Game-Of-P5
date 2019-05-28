@@ -23,7 +23,7 @@ class Ball {
         this.bounce = 0
         this.speed = this.dia / 3.33 // move speed
         this.maxpos = createVector(100, 100)
-        this.minpos = createVector(this.dia / 2, height - this.dia / 2 - 5)
+        this.minpos = createVector(this.dia / 2, height - (this.dia / 2) * 6 - 5)
         this.velocity = createVector(0, 0)
         this.history = []
     }
