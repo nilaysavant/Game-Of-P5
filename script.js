@@ -42,6 +42,14 @@ function initCanvas() {
     frameRate(60) // 60 fps
 }
 
+/*
+    A function to resize canvas if window is resized
+*/
+function windowResized() {
+    resizeCanvas(windowWidth, windowHeight);
+}
+
+
 // KeyPress function
 function keyboardInput() {
     if (keyIsDown(87)) { // W prees: UP
