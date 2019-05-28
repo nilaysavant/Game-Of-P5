@@ -4,6 +4,7 @@ class OnScreenDebugger {
         this.starty = y
         this.text_size = text_size
         this.debugArray = []
+        this.active = false
     }
     add(param, value) {
         this.debugArray.push([param, value])
@@ -18,15 +19,22 @@ class OnScreenDebugger {
             console.log("undefind param")
             this.add(param, value)
         }
-
     }
     show() {
-        strokeWeight(0)
-        textSize(this.text_size)
-        fill(255)
-        for (let i = 0; i < this.debugArray.length; i++) {
-            text(this.debugArray[i][0] + ': ' + this.debugArray[i][1], this.startx, this.starty + i * 10)
+        if (this.active) {
+            strokeWeight(0)
+            textSize(this.text_size)
+            fill(255)
+            text('On Screen Debugger:', this.startx, this.starty)
+            for (let i = 0; i < this.debugArray.length; i++) {
+                text(this.debugArray[i][0] + ': ' + this.debugArray[i][1], this.startx, this.starty + (i+1) * 10)
+            }
         }
     }
-
+    activate() {
+        this.active = true
+    }
+    deactivate() {
+        this.active = false
+    }
 }
