@@ -32,8 +32,8 @@ class Ball {
     }
     show() {
         stroke(255)
-        circle(this.pos.x, this.pos.y, this.dia)
         fill(0)
+        circle(this.pos.x, this.pos.y, this.dia)
 
         this.history.push({
             x: this.pos.x,
