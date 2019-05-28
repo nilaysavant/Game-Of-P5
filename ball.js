@@ -55,7 +55,7 @@ class Ball {
 
         this.velocity.setMag(this.velocity.mag() - 1)
 
-        this.velocity.limit(this.dia / 2.5)
+        this.velocity.limit(this.dia / 5)
 
         this.pos.x += this.velocity.x
         this.pos.y += this.velocity.y

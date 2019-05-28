@@ -99,17 +99,35 @@ function touchInput() {
             }
 
             // set ball direction according to gimble pos
-
             let heading = degrees(gimbleVect.heading())
-            OSD.set('heading', int(heading))
-            // if (touchY < ballY) {
+            OSD.set('heading', int(heading)) // add heading param to OSD
+
+            if (abs(heading) < 45) {
+                ball.ballRight()
+                OSD.set('dir', 'right')
+            } else if (abs(heading) > 135) {
+                ball.ballLeft()
+                OSD.set('dir', 'left')
+            } else if (heading < -45 && heading > -135) {
+                ball.ballUp()
+                OSD.set('dir', 'up')
+            } else if (heading < 135 && heading > 45) {
+                ball.ballDown()
+                OSD.set('dir', 'down')
+            }
+
+            // if (heading < -45 && heading > -135) {
             //     ball.ballUp()
-            // } else if (keyIsDown(83)) {
+            //     OSD.set('dir', 'up')
+            // } else if (heading < 135 && heading > 45) {
             //     ball.ballDown()
-            // } else if (touchX < ballX) {
+            //     OSD.set('dir', 'down')
+            // } else if (heading < 45 && heading > -45) {
             //     ball.ballLeft()
-            // } else if (touchX > ballX) {
+            //     OSD.set('dir', 'left')
+            // } else if (heading < -135 && heading > 135) {
             //     ball.ballRight()
+            //     OSD.set('dir', 'right')
             // }
         }
 
