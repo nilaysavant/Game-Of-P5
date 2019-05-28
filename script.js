@@ -86,7 +86,7 @@ function touchInput() {
             // get vector for the joystick gimble (by subtract touch and joy posn vectrs)
             let gimbleVect = p5.Vector.sub(touchVect, joystick.pos)
 
-            drawArrow(joystick.pos, gimbleVect, 'red') // draw arrow to show
+            // drawArrow(joystick.pos, gimbleVect, 'red') // draw arrow to show
 
             if (gimbleVect.mag() > joystick.dia / 2) { // check touch drag beyond joy limits
                 let v = gimbleVect.copy() // create a copy
@@ -115,20 +115,6 @@ function touchInput() {
                 ball.ballDown()
                 OSD.set('dir', 'down')
             }
-
-            // if (heading < -45 && heading > -135) {
-            //     ball.ballUp()
-            //     OSD.set('dir', 'up')
-            // } else if (heading < 135 && heading > 45) {
-            //     ball.ballDown()
-            //     OSD.set('dir', 'down')
-            // } else if (heading < 45 && heading > -45) {
-            //     ball.ballLeft()
-            //     OSD.set('dir', 'left')
-            // } else if (heading < -135 && heading > 135) {
-            //     ball.ballRight()
-            //     OSD.set('dir', 'right')
-            // }
         }
 
     }

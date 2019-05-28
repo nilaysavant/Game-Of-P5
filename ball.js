@@ -75,7 +75,7 @@ class Ball {
     gravity() {
         let grav = createVector(this.pos.x, this.minpos.y + this.dia / 2)
         this.gforce = p5.Vector.sub(grav, this.pos)
-        drawArrow(this.pos, this.gforce, 'blue')
+        // drawArrow(this.pos, this.gforce, 'blue')
 
         let tempVec = this.gforce.copy()
         tempVec.setMag(1.5)
@@ -87,7 +87,7 @@ class Ball {
         this.velocity.y -= this.speed * (this.dia / 62.5)
         this.rel_height = height - this.pos.y
         let grav = createVector(this.pos.x, this.minpos.y + this.dia / 2)
-        drawArrow(grav, this.gforce.mult(-1), 'yellow')
+        // drawArrow(grav, this.gforce.mult(-1), 'yellow')
     }
     ballDown() {
         this.velocity.y += this.speed
