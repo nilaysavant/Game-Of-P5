@@ -69,7 +69,7 @@ class Ball {
         drawArrow(this.pos, this.velocity, 'red')
     }
     gravity() {
-        let grav = createVector(this.pos.x, height)
+        let grav = createVector(this.pos.x, this.minpos.y + this.dia / 2)
         this.gforce = p5.Vector.sub(grav, this.pos)
         drawArrow(this.pos, this.gforce, 'blue')
 

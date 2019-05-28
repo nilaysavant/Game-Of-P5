@@ -42,12 +42,6 @@ function initCanvas() {
     frameRate(60) // 60 fps
 }
 
-/*
-    A function to resize canvas if window is resized
-*/
-function windowResized() {
-    resizeCanvas(windowWidth, windowHeight);
-}
 
 /*
     function to display on screen debug params
