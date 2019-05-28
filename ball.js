@@ -43,10 +43,11 @@ class Ball {
             x: this.pos.x,
             y: this.pos.y
         })
-        for (let i of this.history) {
+        for (let i = 0; i < this.history.length; i++) {
             noStroke()
-            fill(206, 160, 101)
-            circle(i.x, i.y, this.dia * 0.2)
+            let f = (i + 1) * 0.1 // color dimming factor
+            fill(206 * f, 160 * f, 101 * f)
+            circle(this.history[i].x, this.history[i].y, this.dia * 0.2)
             fill(0)
         }
         if (this.history.length > 15) {
