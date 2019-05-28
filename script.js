@@ -1,14 +1,15 @@
 /*
-    > Game Of P5 <
-
-    Author: Nilay Savant
-    Description: A simple game developing in P5.js
-*/
+ *  > Game Of P5 <
+ *
+ *  Author: Nilay Savant
+ *  Description: A simple game developing in P5.js
+ * 
+ */
 
 // GLOBAL Vars
 
-let ball, joystick;
-let touchVect; // touch vector
+let ball, joystick
+let touchVect // touch vector
 
 
 
@@ -37,8 +38,8 @@ function draw() {
 }
 
 /*
-    A function reset canvas to init state
-*/
+ *  A function reset canvas to init state
+ */
 function initCanvas() {
     createCanvas(windowWidth, windowHeight)
     background(0)
@@ -48,8 +49,8 @@ function initCanvas() {
 
 
 /*
-    function to display on screen debug params
-*/
+ * function to display on screen debug params
+ */
 function onScreenDebug() {
     strokeWeight(0)
     textSize(windowHeight / 60)
@@ -77,15 +78,12 @@ function keyboardInput() {
 }
 
 /*
-    function to move ball based on location of 
-    touches with respect to the ball
-*/
+ *  function to move ball based on location of 
+ *   touches with respect to the ball
+ */
 function touchInput() {
     if (touches.length > 0) {
         touchVect.set(touches[0].x, touches[0].y)
-        // let ballX = ball.pos.x
-        // let ballY = ball.pos.y
-
         if (joystick.active) {
             let gimbleVect = p5.Vector.sub(touchVect, joystick.pos)
             drawArrow(joystick.pos, gimbleVect, 'red')
@@ -114,7 +112,6 @@ function touchInput() {
 
 function touchStarted() {
     touchVect.set(touches[0].x, touches[0].y)
-
     if (p5.Vector.dist(touchVect, joystick.pos) < joystick.dia) {
         joystick.activate()
     }
@@ -122,5 +119,4 @@ function touchStarted() {
 
 function touchEnded() {
     joystick.deactivate()
-
 }
