@@ -15,7 +15,7 @@ let ball;
 function setup() {
     // put setup code here
     initCanvas()
-    ball = new Ball(50, 15)
+    ball = new Ball(windowHeight / 11.86, windowHeight / 39.53)
 }
 
 

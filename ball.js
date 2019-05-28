@@ -15,15 +15,15 @@ function drawArrow(base, vec, myColor) {
 class Ball {
     constructor(dia, mass) {
         // Attributes of ball
-        this.pos = createVector(50, 50) // pos vector
-
-        this.rel_height = 200 // the max value of height when released 
-        this.bounce = 0
-        this.speed = 15 // move speed
         this.dia = dia // diamenter
+        this.mass = mass // mass
+
+        this.pos = createVector(50, 50) // pos vector
+        this.rel_height = this.dia / 0.25 // the max value of height when released 
+        this.bounce = 0
+        this.speed = this.dia / 3.33 // move speed
         this.maxpos = createVector(100, 100)
         this.minpos = createVector(this.dia / 2, height - this.dia / 2 - 5)
-        this.mass = mass
         this.velocity = createVector(0, 0)
         this.history = []
     }
@@ -51,7 +51,7 @@ class Ball {
 
         this.velocity.setMag(this.velocity.mag() - 1)
 
-        this.velocity.limit(20)
+        this.velocity.limit(this.dia / 2.5)
 
         this.pos.x += this.velocity.x
         this.pos.y += this.velocity.y
@@ -62,7 +62,7 @@ class Ball {
         if (this.pos.y >= this.minpos.y) {
             this.pos.y = this.minpos.y
             let bounce = this.velocity.copy()
-            bounce.mult(-2)
+            bounce.mult(-2.5)
             bounce.x = 0
             this.velocity = p5.Vector.add(this.velocity, bounce)
         }
@@ -80,7 +80,7 @@ class Ball {
     }
     // movement functions
     ballUp() {
-        this.velocity.y -= this.speed * 0.8
+        this.velocity.y -= this.speed * (this.dia / 62.5)
         this.rel_height = height - this.pos.y
         let grav = createVector(this.pos.x, height + this.dia / 2)
         drawArrow(grav, this.gforce.mult(-1), 'yellow')
