@@ -1,8 +1,8 @@
 /*
-    P5-Test - A project to test out p5.js
+    > Game Of P5 <
 
     Author: Nilay Savant
-    Description:
+    Description: A simple game developing in P5.js
 */
 
 // GLOBAL Vars
