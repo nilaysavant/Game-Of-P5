@@ -29,12 +29,7 @@ function draw() {
     touchInput()
     ball.show()
     // ball.log()
-
-    textSize(15);
-    fill(255);
-    text('width: ' + windowWidth, 10, 30);
-    text('height: ' + windowHeight, 100, 30);
-
+    onScreenDebug()
 }
 
 /*
@@ -52,6 +47,13 @@ function initCanvas() {
 */
 function windowResized() {
     resizeCanvas(windowWidth, windowHeight);
+}
+
+function onScreenDebug() {
+    textSize(windowHeight / 60);
+    fill(255);
+    text('width: ' + windowWidth, windowHeight / 70, windowHeight / 35);
+    text('height: ' + windowHeight, windowHeight / 9, windowHeight / 35);
 }
 
 
