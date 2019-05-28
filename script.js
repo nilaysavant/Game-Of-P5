@@ -88,6 +88,14 @@ function touchInput() {
         if (joystick.active) {
             let gimbleVect = p5.Vector.sub(touchVect, joystick.pos)
             drawArrow(joystick.pos, gimbleVect, 'red')
+            if (gimbleVect.mag() > joystick.dia / 2) {
+                let v = gimbleVect.copy()
+                v.setMag(joystick.dia / 2.5)
+                v = p5.Vector.add(joystick.pos, v)
+                joystick.gimble.set(v.x, v.y)
+            } else {
+                joystick.gimble.set(touchVect.x, touchVect.y)
+            }
         }
 
         // if (touchY < ballY) {
