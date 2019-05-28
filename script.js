@@ -16,7 +16,7 @@ function setup() {
     // put setup code here
     initCanvas()
     ball = new Ball(windowHeight / 11.86, windowHeight / 39.53)
-    joystick = new Joystick(windowWidth / 2, windowHeight / 1.12, windowHeight / 11.86)
+    joystick = new Joystick(windowHeight / 5.5, windowWidth / 2, windowHeight / 1.125)
 }
 
 
