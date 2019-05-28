@@ -49,6 +49,9 @@ function windowResized() {
     resizeCanvas(windowWidth, windowHeight);
 }
 
+/*
+    function to display on screen debug params
+*/
 function onScreenDebug() {
     textSize(windowHeight / 60);
     fill(255);
