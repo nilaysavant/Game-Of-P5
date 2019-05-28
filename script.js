@@ -9,6 +9,7 @@
 // GLOBAL Vars
 
 let ball, joystick
+let OSD
 let touchVect // touch vector
 
 
@@ -20,6 +21,7 @@ function setup() {
     touchVect = createVector(0, 0)
     ball = new Ball(windowHeight / 11.86, windowHeight / 39.53)
     joystick = new Joystick(windowHeight / 5.5, windowWidth / 2, windowHeight / 1.125)
+    OSD = new OnScreenDebugger(windowHeight / 2, windowWidth / 2, windowHeight / 60)
 }
 
 
@@ -34,6 +36,7 @@ function draw() {
     ball.show()
     joystick.show()
     // ball.log()
+    OSD.show()
     onScreenDebug()
 }
 
@@ -103,8 +106,8 @@ function touchInput() {
 
             // set ball direction according to gimble pos
 
-            let heading = gimbleVect.heading()
-
+            let heading = degrees(gimbleVect.heading())
+            OSD.set('heading', heading)
             // if (touchY < ballY) {
             //     ball.ballUp()
             // } else if (keyIsDown(83)) {
