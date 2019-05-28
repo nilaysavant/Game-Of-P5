@@ -100,24 +100,29 @@ function touchInput() {
                 // set gimble to touch if whithin limits
                 joystick.gimble.set(touchVect.x, touchVect.y)
             }
+
+            // set ball direction according to gimble pos
+
+            let heading = gimbleVect.heading()
+
+            // if (touchY < ballY) {
+            //     ball.ballUp()
+            // } else if (keyIsDown(83)) {
+            //     ball.ballDown()
+            // } else if (touchX < ballX) {
+            //     ball.ballLeft()
+            // } else if (touchX > ballX) {
+            //     ball.ballRight()
+            // }
         }
 
-        // if (touchY < ballY) {
-        //     ball.ballUp()
-        // } else if (keyIsDown(83)) {
-        //     ball.ballDown()
-        // } else if (touchX < ballX) {
-        //     ball.ballLeft()
-        // } else if (touchX > ballX) {
-        //     ball.ballRight()
-        // }
     }
     return false; // prevent default
 }
 
 function touchStarted() {
     touchVect.set(touches[0].x, touches[0].y)
-    
+
     if (p5.Vector.dist(touchVect, joystick.pos) < joystick.dia) {
         joystick.activate()
     }
