@@ -24,6 +24,9 @@ function setup() {
 
     // Add on screen debug
     OSD = new OnScreenDebugger(windowHeight / 70, windowHeight / 35, windowHeight / 60)
+    OSD.add('width', windowWidth)
+    OSD.add('height', windowHeight)
+
     OSD.activate()
 }
 
@@ -90,6 +93,9 @@ function keyboardInput() {
 function touchInput() {
     if (touches.length > 0) { // if there are any touches
         touchVect.set(touches[0].x, touches[0].y)
+
+        OSD.set('x', int(touchVect.x))
+        OSD.set('y', int(touchVect.y))
 
         if (joystick.active) { // joystick has been touched(active)
             // get vector for the joystick gimble (by subtract touch and joy posn vectrs)

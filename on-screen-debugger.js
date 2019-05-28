@@ -27,7 +27,9 @@ class OnScreenDebugger {
             fill(255)
             text('On Screen Debugger:', this.startx, this.starty)
             for (let i = 0; i < this.debugArray.length; i++) {
-                text(this.debugArray[i][0] + ': ' + this.debugArray[i][1], this.startx, this.starty + (i+1) * 10)
+                text(this.debugArray[i][0] + ': ' + this.debugArray[i][1],
+                    this.startx,
+                    this.starty + (i + 1) * this.text_size * 1.5)
             }
         }
     }
