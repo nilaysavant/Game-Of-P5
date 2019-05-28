@@ -64,6 +64,10 @@ function keyboardInput() {
     return false; // prevent default
 }
 
+/*
+    function to move ball based on location of 
+    touches with respect to the ball
+*/
 function touchInput() {
     if (touches.length > 0) {
         let touchX = touches[0].x
@@ -71,14 +75,13 @@ function touchInput() {
         let ballX = ball.pos.x
         let ballY = ball.pos.y
 
-        // console.table(ball.pos.x)
-        if (touchY < ballY) { // W prees: UP
+        if (touchY < ballY) { 
             ball.ballUp()
-        } else if (keyIsDown(83)) { // S press: DOWN
+        } else if (keyIsDown(83)) { 
             ball.ballDown()
-        } else if (touchX < ballX) { // A press: LEFT
+        } else if (touchX < ballX) { 
             ball.ballLeft()
-        } else if (touchX > ballX) { // D press: RIGHT
+        } else if (touchX > ballX) {
             ball.ballRight()
         }
     }
