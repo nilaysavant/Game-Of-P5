@@ -8,6 +8,7 @@
 // GLOBAL Vars
 
 let ball, joystick;
+let touchVect; // touch vector
 
 
 
@@ -15,6 +16,7 @@ let ball, joystick;
 function setup() {
     // put setup code here
     initCanvas()
+    touchVect = createVector(0, 0)
     ball = new Ball(windowHeight / 11.86, windowHeight / 39.53)
     joystick = new Joystick(windowHeight / 5.5, windowWidth / 2, windowHeight / 1.125)
 }
@@ -49,10 +51,13 @@ function initCanvas() {
     function to display on screen debug params
 */
 function onScreenDebug() {
-    textSize(windowHeight / 60);
-    fill(255);
-    text('width: ' + windowWidth, windowHeight / 70, windowHeight / 35);
-    text('height: ' + windowHeight, windowHeight / 9, windowHeight / 35);
+    textSize(windowHeight / 60)
+    fill(255)
+    text('width: ' + windowWidth, windowHeight / 70, windowHeight / 35)
+    text('height: ' + windowHeight, windowHeight / 9, windowHeight / 35)
+    text('touch x: ' + int(touchVect.x), windowHeight / 3, windowHeight / 35)
+    text('y: ' + int(touchVect.y), windowHeight / 2.2, windowHeight / 35)
+
 }
 
 
@@ -76,20 +81,23 @@ function keyboardInput() {
 */
 function touchInput() {
     if (touches.length > 0) {
-        let touchX = touches[0].x
-        let touchY = touches[0].y
-        let ballX = ball.pos.x
-        let ballY = ball.pos.y
+        touchVect.set(touches[0].x, touches[0].y)
+        // let ballX = ball.pos.x
+        // let ballY = ball.pos.y
 
-        if (touchY < ballY) {
-            ball.ballUp()
-        } else if (keyIsDown(83)) {
-            ball.ballDown()
-        } else if (touchX < ballX) {
-            ball.ballLeft()
-        } else if (touchX > ballX) {
-            ball.ballRight()
-        }
+
+        // if ()
+
+
+        // if (touchY < ballY) {
+        //     ball.ballUp()
+        // } else if (keyIsDown(83)) {
+        //     ball.ballDown()
+        // } else if (touchX < ballX) {
+        //     ball.ballLeft()
+        // } else if (touchX > ballX) {
+        //     ball.ballRight()
+        // }
     }
     return false; // prevent default
 }
