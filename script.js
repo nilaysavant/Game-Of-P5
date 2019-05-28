@@ -82,17 +82,22 @@ function keyboardInput() {
  *   touches with respect to the ball
  */
 function touchInput() {
-    if (touches.length > 0) {
+    if (touches.length > 0) { // if there are any touches
         touchVect.set(touches[0].x, touches[0].y)
-        if (joystick.active) {
+
+        if (joystick.active) { // joystick has been touched(active)
+            // get vector for the joystick gimble (by subtract touch and joy posn vectrs)
             let gimbleVect = p5.Vector.sub(touchVect, joystick.pos)
-            drawArrow(joystick.pos, gimbleVect, 'red')
-            if (gimbleVect.mag() > joystick.dia / 2) {
-                let v = gimbleVect.copy()
-                v.setMag(joystick.dia / 2.5)
-                v = p5.Vector.add(joystick.pos, v)
-                joystick.gimble.set(v.x, v.y)
+
+            drawArrow(joystick.pos, gimbleVect, 'red') // draw arrow to show
+
+            if (gimbleVect.mag() > joystick.dia / 2) { // check touch drag beyond joy limits
+                let v = gimbleVect.copy() // create a copy
+                v.setMag(joystick.dia / 2.5) // red mag to max joy limit
+                v = p5.Vector.add(joystick.pos, v) // add vec to get the max joy gimble vect
+                joystick.gimble.set(v.x, v.y) // set gimble to this vect
             } else {
+                // set gimble to touch if whithin limits
                 joystick.gimble.set(touchVect.x, touchVect.y)
             }
         }
@@ -112,6 +117,7 @@ function touchInput() {
 
 function touchStarted() {
     touchVect.set(touches[0].x, touches[0].y)
+    
     if (p5.Vector.dist(touchVect, joystick.pos) < joystick.dia) {
         joystick.activate()
     }
