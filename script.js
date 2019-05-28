@@ -43,6 +43,7 @@ function draw() {
     joystick.show()
     // ball.log()
     OSD.show()
+    displayTitles()
 }
 
 /*
@@ -55,6 +56,17 @@ function initCanvas() {
     frameRate(60) // 60 fps
 }
 
+function displayTitles() {
+    strokeWeight(0)
+    textSize(windowHeight / 25)
+    fill(255)
+    text('GAME', windowWidth / 20, windowHeight / 1.2)
+    text('OF', windowWidth / 20, windowHeight / 1.12)
+    text('P5 ☄', windowWidth / 20, windowHeight / 1.05)
+
+    textSize(windowHeight / 50)
+    text('☣ ℕ𝕀𝕃𝔸𝕐 𝕊𝔸𝕍𝔸ℕ𝕋', windowWidth / 1.5, windowHeight / 1.02)
+}
 
 // KeyPress function
 function keyboardInput() {
