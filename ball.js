@@ -82,7 +82,7 @@ class Ball {
     ballUp() {
         this.velocity.y -= this.speed * (this.dia / 62.5)
         this.rel_height = height - this.pos.y
-        let grav = createVector(this.pos.x, height + this.dia / 2)
+        let grav = createVector(this.pos.x, this.minpos.y + this.dia / 2)
         drawArrow(grav, this.gforce.mult(-1), 'yellow')
     }
     ballDown() {
